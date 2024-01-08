@@ -20,6 +20,10 @@ const images = [
     full: "https://plus.unsplash.com/premium_photo-1666963323736-5ee1c16ef19d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=1024&q=60"
   }
 ]
+
+function showFullImage(image){
+  fullImage.value = image.full
+}
 </script>
 
 <template>
@@ -27,7 +31,7 @@ const images = [
         <h1 class="text-center text-2xl py-10">Events & Reactivity</h1>
         <div class="">
             <div class="flex space-x-2">
-                <img class="cursor-pointer" v-for="image in images" :key="image.thumb" :src="image.thumb">
+                <img @click="showFullImage(image)" class="cursor-pointer" v-for="image in images" :key="image.thumb" :src="image.thumb">
             </div>
             <div class="mt-10">
                 <img class="cursor-pointer w-full" :src="fullImage" alt="">
