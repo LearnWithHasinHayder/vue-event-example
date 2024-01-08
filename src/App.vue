@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "vue"
-const message = ref("Hello Vue 3")
 
 const space = ref(0)
+const pressed = ref(null)
 
 const divClicked = () => {
   alert("Div Clicked")
@@ -31,7 +31,7 @@ const buttonClicked = () => {
         Button
       </button>
 
-      <button class="bg-blue-500 ml-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >
+      <button class="mt-5 bg-blue-500 ml-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >
         Shift + Click
       </button>
 
