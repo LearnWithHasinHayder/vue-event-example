@@ -5,7 +5,6 @@ const msg = ref('')
 
 function sendMessage() {
 
-  // document.getElementById('messageBox').scrollTop = document.getElementById('messageBox').scrollHeight
 }
 </script>
  
