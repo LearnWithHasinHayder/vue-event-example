@@ -1,9 +1,16 @@
 <script setup>
 import { ref } from "vue"
-const messages = ref([])
+const messages = ref([
+  'Hi Whats up',
+])
 const msg = ref("")
 
-function sendMessage() { }
+function sendMessage() { 
+  // console.log(msg.value)
+  // messages.value.push("Random Message")
+  messages.value.push(msg.value)
+  msg.value = ""
+}
 </script>
 
 <template>
@@ -54,7 +61,7 @@ function sendMessage() { }
                 </div>
                 <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
                   <div class="flex items-bottom justify-between">
-                    <p class="text-grey-darkest">New Movie! Expendables 4</p>
+                    <p class="text-grey-darkest">New Movie! Expendables 4 </p>
                     <p class="text-xs text-grey-darkest">12:45 pm</p>
                   </div>
                   <p class="text-grey-dark mt-1 text-sm">Get Andrés on this movie ASAP!</p>
@@ -213,7 +220,13 @@ function sendMessage() { }
                   </div>
                 </div>
 
-                
+                <div class="flex justify-end mb-2" v-for="(message, index) in messages" :key="index">
+                  <div class="rounded py-2 px-3" style="background-color: #e2f7cb">
+                    <p class="text-sm mt-1">{{ message }}</p>
+                    <p class="text-right text-xs text-grey-dark mt-1">12:45 pm</p>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -225,8 +238,8 @@ function sendMessage() { }
                 </svg>
               </div>
               <div class="flex mx-4 justify-between w-full">
-                <input class="w-full border rounded px-2 py-2" type="text" />
-                <button class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send</button>
+                <input @keypress.enter="sendMessage()" v-model="msg" class="w-full border rounded px-2 py-2" type="text" />
+                <button @click="sendMessage()" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send</button>
               </div>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
